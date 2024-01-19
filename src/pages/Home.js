@@ -74,7 +74,7 @@ const Home = ({user, myList}) => {
     }, [topActors])
 
     const getHomeActors = async() => {
-        const actorData = await fetch('/api/homeActor', {
+        const actorData = await fetch('https://whoseiyu-api.onrender.com/api/homeActor', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
