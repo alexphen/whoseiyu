@@ -151,7 +151,7 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList, ca
                     <div
                         id="rolesContainer"
                         className="homeRoleCarousel"
-                        onMouseOver={stopScroll}
+                        onMouseDown={stopScroll}
                         onTouchStart={stopScroll}
                         // onMouseOut={resumeScroll}
                         >
