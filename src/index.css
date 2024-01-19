@@ -1359,7 +1359,7 @@ button:hover {
     top: 125px;
   }
   #homePlayButton {
-    position: relative;
+    position: absolute;
     align-self: flex-end;
     width: 100px;
     right: 5vw;
