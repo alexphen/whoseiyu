@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import Show from "./pages/Show";
 import Home from "./pages/Home";
 import Actor from "./pages/Actor";
@@ -14,12 +13,7 @@ function App() {
 	const [entry, setEntry]  	= useState(cookies.acc || "");
 	const [myList, setMyList] 	= useState(cookies.list || "");
   	const [user, setUser]     	= useState(cookies.acc || "");
-	const [searchParams, setSearchParams] = useSearchParams();
-	const navigate = useNavigate();
-	// const code = searchParams.get('code')
-	var code;
 	const [veri, setVeri]		= useState(cookies.veri || "");
-	const [token, setToken] 	= useState(cookies.token || {});
 
 	var authPopup;
 	var authorized = false;

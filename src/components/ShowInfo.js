@@ -9,7 +9,6 @@ const   CharName    = 0,
         ActorName   = 3,
         ImageURL    = 4;
 
-var toggles = [];
 var set = false;
 var cache = {};
 

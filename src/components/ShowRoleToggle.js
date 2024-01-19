@@ -1,7 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
-import Show from "../pages/Show";
-import { active } from "requests";
 const _ = require('lodash')
 
 const CharID    = 0;
@@ -12,8 +10,6 @@ const ImageURL  = 3;
 const ShowID    = 5;
 const Title     = 7;
 const rank      = 8;
-
-var started;
 
 const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myList, cache}) => {
 
