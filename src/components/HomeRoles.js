@@ -144,8 +144,8 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList, ca
                     <img className="homeScrollArrow" 
                         src={require("../assets/left.png")} 
                         onClick={jumpBack} 
-                        // onMouseEnter={() => resumeScroll(-1)}
                         onMouseEnter={scrollBack}
+                        onMouseLeave={stopScroll}
                     ></img>
                     {/*onMouseDown={scrollBack} onMouseUp={stopScroll}>*/}
                     <div
@@ -168,6 +168,7 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList, ca
                         onClick={jumpForward} 
                         // onMouseEnter={() => resumeScroll(1)}>
                         onMouseEnter={scrollForward}
+                        onMouseLeave={stopScroll}
                     ></img> 
                     {/*</>onMouseDown={scrollForward} onMouseUp={stopScroll}>*/}
             </div>

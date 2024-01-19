@@ -64,8 +64,6 @@ const Home = ({user, myList}) => {
         prevList.current = myList;
     }, [myList])
 
-
-
     useEffect(() => {
         getData(topActors[0]);
         if(started) {
@@ -115,14 +113,6 @@ const Home = ({user, myList}) => {
     }
 
     function start() {
-        // active = true;
-        // window.location='/a';
-        // const params = new URLSearchParams(window.location.search);
-        // params.set('active', 'a');
-        // window.location.search = params;
-
-        // getHomeActors();
-        // nextActor(index);
         started = true;
         setActorID(topActors[0]);
         getData(topActors[0])
