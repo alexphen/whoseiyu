@@ -998,7 +998,7 @@ button:hover {
     padding: 10px;
   }
   #topTitle:hover {
-    text-shadow: 3px 3px 3px var(--white);
+    text-shadow: 1px 1px 3px var(--trim3);
   }
   #moreTitles {
     text-align: center;
@@ -1363,7 +1363,7 @@ button:hover {
     align-self: flex-end;
     width: 100px;
     right: 5vw;
-    /* top: 1000px; */
+    top: 400px;
     cursor: pointer;
   }
   .homeRoleCarousel::-webkit-scrollbar {
@@ -1391,7 +1391,7 @@ button:hover {
     height: 350px;
   }
   .homeCharName {
-    color: var(--trim4);
+    color: var(--white);
     /* font-size: 37.5px; */
     /* max-width: 100%; */
     width: 100%;
