@@ -39,7 +39,7 @@ export default function Show({user, myList}) {
             var idRes = [];
             var tRes = [];
 
-            const searchData = await fetch ('/api/search', {
+            const searchData = await fetch ('https://whoseiyu-api.onrender.com/api/search', {
                 method: 'POST',
                 headers: {
                   'content-type': 'application/json',

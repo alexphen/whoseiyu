@@ -73,7 +73,7 @@ function App() {
 			if (cookies.token && cookies.token["access_token"]) {
 				console.log("getting MAL authorized data")
 				try {
-					const malData = await fetch ('/api/malA', {
+					const malData = await fetch ('https://whoseiyu-api.onrender.com/api/malA', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -108,7 +108,7 @@ function App() {
 			else {
 				console.log("getting MAL data")
 				try {
-					const malData = await fetch ('/api/mal', {
+					const malData = await fetch ('https://whoseiyu-api.onrender.com/api/mal', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -159,7 +159,7 @@ function App() {
 		if (entry != "") {
 			console.log("getting MAL authorized data")
 			try {
-				const malData = await fetch ('/api/malA', {
+				const malData = await fetch ('https://whoseiyu-api.onrender.com/api/malA', {
 					method: 'POST',
 					headers: {
 						'content-type': 'application/json',
@@ -202,7 +202,7 @@ function App() {
 	const getTop100 = async() => {
 		console.log("getting top 100")
 		try {
-			const malData = await fetch ('/api/top', {
+			const malData = await fetch ('https://whoseiyu-api.onrender.com/api/top', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json',

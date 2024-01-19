@@ -97,7 +97,7 @@ const Home = ({user, myList}) => {
 
     const getData = async(actID) => {
         // console.log('actID', actID)
-        const actorData = await fetch('/api/actor', {
+        const actorData = await fetch('https://whoseiyu-api.onrender.com/api/actor', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

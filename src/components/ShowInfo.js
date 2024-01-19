@@ -31,7 +31,7 @@ const ShowInfo = ({ user, myList, flag }) => {
     
 
     const getShowActors = async() => {
-        const showData = await fetch ('/api/show', {
+        const showData = await fetch ('https://whoseiyu-api.onrender.com/api/show', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

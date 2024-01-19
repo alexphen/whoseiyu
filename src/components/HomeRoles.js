@@ -106,7 +106,7 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList, ca
         }
         else {
             cache[actorID] = [];
-            const roleData = await fetch ('/api/roles', {
+            const roleData = await fetch ('https://whoseiyu-api.onrender.com/api/roles', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

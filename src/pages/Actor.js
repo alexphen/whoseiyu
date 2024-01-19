@@ -67,7 +67,7 @@ export default function Actor({user, myList}) {
     }, [roles]);
 
     const getData = async() => {
-        const actorData = await fetch ('/api/actorFull', {
+        const actorData = await fetch ('https://whoseiyu-api.onrender.com/api/actorFull', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -104,7 +104,7 @@ export default function Actor({user, myList}) {
             var idRes = [];
             var nRes = [];
 
-            const searchData = await fetch ('/api/searchActor', {
+            const searchData = await fetch ('https://whoseiyu-api.onrender.com/api/searchActor', {
                 method: 'POST',
                 headers: {
                   'content-type': 'application/json',

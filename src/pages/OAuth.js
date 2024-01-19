@@ -16,7 +16,7 @@ const OAuth = ({ cookies, setCookie, authorized }) => { //setToken
 
     const authorize = async() => {
         // console.log('actID', actID)
-        const oauth = await fetch('/api/auth', {
+        const oauth = await fetch('https://whoseiyu-api.onrender.com/api/auth', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
