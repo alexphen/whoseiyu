@@ -1,0 +1,1759 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow:wght@300;400;500;600;700&display=swap');
+
+
+/* ALL DISPLAYS */
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  /* background-color: #202025; */
+  color: color-contrast(var(--white) vs var(--bg));
+  color: var(--white);
+}
+:root {
+  --bg: #201E1F;
+  /* --bg: #4A4E69; */
+  --trim1: #A31621;
+  --trim2: #4A4E69;
+  --trim3: #6EA4BF;
+  --trim4: #C9ADA7;
+  --trim5: #FFFD82;
+  --white: #f2f2f2;
+  --darkgrey: #44444c;
+  --lightgrey: #777;
+  background-image: url('./assets/bg.png');
+  /* background-image: conic-gradient(var(--bg)0deg, var(--trim2)360deg, var(--bg)180deg); */
+}
+html {
+  background-color: var(--bg);
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+a {
+  text-decoration: none;
+  /* background-color: #44444c; */
+}
+::marker {
+  content: "";
+  display: none;
+  color: var(--white);
+}
+#toTop {
+  cursor: pointer;
+}
+.actorInfoTitle {
+  padding: 1vw;
+  text-align: end;
+  font-size: 20px;
+}
+#homeTitle {
+  font-family: "Rubik Doodle Shadow";
+  font-size: 100px;
+  padding: 40px;
+}
+button {
+  cursor: pointer;
+}
+button:hover {
+  opacity: 85%;
+}
+.Auth {
+  position: relative;
+  top: 10vw;
+}
+
+
+/* MOBILE SPECS */
+@media screen and (max-width: 600px) {
+  /* BASICS */
+
+  #roleActor {
+    font-size: 2em;
+    padding: 1vh;
+    text-align: center;
+  }
+  #roleActor:after {
+    /* content: '◥'; */
+    color: var(--white);
+    width: 0;
+    height: 0;
+    /* border-style: solid; */
+    /* border-width: 0 30px 30px 0; */
+    /* border-color: transparent #608A32 transparent transparent; */
+    right: 0;
+    top: 0;
+    position: absolute;
+  }
+  #roleInner {
+    display: flex;
+    width: 225px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+  .roleGallery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* height: 30vw; */
+    height: fit-content;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    padding: 20px 10px;
+    padding-top: 0;
+    border-bottom: 1px;
+    /* padding-bottom: 0; */
+  }
+  .roleGallery img {
+    width: 225px;
+    height: 350px;
+    margin: auto;
+    align-self: center;
+  }
+  .roleTogglePrev {
+    background-color: var(--trim1);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    align-self:stretch;
+    /* flex: none; */
+    font-size: 1em;
+    border-width: .3vh;
+  }
+  .roleToggleNext {
+    background-color: var(--trim1);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    align-self:stretch;
+    /* flex: none; */
+    padding: 0;
+    font-size: 1em;
+    border-width: .3vh;
+  }
+  .imgNav {
+    display: flex;
+    /* flex-direction: row; */
+    width: 100%;
+    height: fit-content;
+    /* justify-content: ; */
+    justify-content: space-between;
+    padding: 1vw 0;
+  }
+  .imgNavIndex {
+    display: flex;
+    flex-direction: column;
+  }
+  .selectionDots {
+    flex: auto;
+    font-size: 25px;
+    text-align: center;
+    align-self: center;
+    /* max-width: 6vw; */
+    flex-wrap: wrap;
+    padding-left: .3vw;
+    padding-right: .3vw;
+  }
+  .index {
+    /* text-align: end; */
+    right: 0;
+    position: relative;
+    font-size: 16px;
+    align-self: end;
+    text-align: end;
+    /* margin-right: 2vh; */
+  }
+  .roleGallery h4 {
+    color: var(--trim5);
+    /* font-size: 2em; */
+    font-size: 4vh;
+  }
+  .roleGallery p {
+    /* font-size: 30px;
+    font-size: 1.2vw; */
+    text-align: right;
+  }
+  #topTitle {
+    font-size: 2vh;
+    text-align: end;
+    padding-bottom: 10px;
+  }
+  #moreTitles {
+    text-align: center;
+    margin-top: 1em;
+    z-index: 1;
+  }
+  .altTitles {
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    gap: .5vw;
+    padding: 15px;
+    border-bottom: .1vw solid var(--white);
+  }
+  .showsList {
+    display: none;
+    text-align: end;
+    margin: auto;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 1em;
+    background-color: var(--darkgrey);
+    padding: 1em;
+    padding-top: 0;
+  }
+  #moreTitles:hover + .showsList {
+    display: flex;
+  }
+  .showsList:hover {
+    display: flex;
+  }
+
+  /* MOBILE SEARCH COMPONENTS */
+
+.results {
+  display: none;
+  position: absolute;
+  top: 6.2vh;
+  flex-direction: column;
+  font-size: 1.75vh;
+  width: 27vh;
+  z-index: 10;
+}
+.search:focus + .results {
+  display: flex;
+}
+.results:hover {
+  display: flex;
+}
+.resBox {
+  position: relative;
+  background-color: var(--bg);
+  font-size: 2vh;
+  text-align: left;
+  /* right: 0; */
+  border: var(--trim1) ridge .25vw;
+  border-radius: 1vw;
+  margin: .1vw;
+  width: 100%;
+  padding: 1vh;
+  cursor: pointer;
+  text-decoration: none;
+}
+  
+
+
+  /* MOBILE NAV BAR COMPONENTS */ 
+  .nav {
+    position: -webkit-sticky; /* Safari */
+    position: relative;
+    background-color: var(--darkgrey);
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    z-index: 10;
+    height: 7vh;
+    top: 6vh;
+    border-top: .2vw solid var(--white);
+    border-bottom: .2vw solid var(--white);
+  }
+  .nav a {
+    /* margin-left: 16px; */
+    align-items: center;
+    text-decoration: none;
+    font-size: 2vh;
+    height: 100%;
+    padding: .11vw 2vw;
+    display: flex;
+    text-align: center;
+    text-wrap: nowrap;
+  }
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    list-style: none;
+    display: flex;
+  }
+  .nav .links {
+    margin-left: auto;
+  }
+  #navLeftPane {
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
+  }
+  .nav li.active {
+    background-color: var(--trim2);
+  }
+  .nav li:hover {
+    background-color: var(--lightgrey);
+  }
+  .nav a:hover {
+    color: var(--trim1);
+  }
+  #userSearchArea {
+    display: flex;
+    top: -6vh;
+    background-color: var(--bg);
+    position: absolute;
+    padding: 1vh 0;
+    height: 4vh;
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  #userSearch {
+    position: relative;
+    display: flex;
+    width: 16vh;
+    columns: 1;
+    z-index: 11;
+    font-size: 2vh;
+    color: black;
+    /* height: 3vh; */
+    /* top: .25vh; */
+    padding: 0vw 0vw 0vw .75vh;
+    border-width: .2vh;
+    border-radius: 1vh;
+  }
+  #userSearchInputs {
+    display: flex;
+  }
+  /* #userSearchButton { */
+  .nav button {
+    position: relative;
+    z-index: 11;
+    font-size: 1.5vh;
+    /* left: 60%; */
+    background-color: var(--lightgrey);  
+    /* height: 3vh; */
+    border-width: .3vw;
+    border-radius: .5vh;
+    padding: 0 1vw 0 1vw;
+    text-wrap: nowrap;
+  }
+  #userTip {
+    display: none;
+  }
+  #topTip {
+    display: none;
+  }
+  #filter {
+    font-size: 1vh;
+    /* text-wrap: nowrap; */
+    /* word-break: break-all; */
+  }
+  #filterTip {
+    display: none;
+    position: absolute;
+    top: 6vh;
+    right: 0;
+    width: 80vw;
+    background-color: var(--bg);
+    border: 4px var(--trim4);
+    border-style: ridge;
+  }
+  #filterLabel:hover #filterTip {
+    display: flex;
+  }
+  #unfilter {
+    /* height: 2vh; */
+    border-width: .1vh;
+    font-size: 1.2vh;
+    background-color: var(--lightgrey);  
+    margin-top: .5vh;
+    padding: .3vh;
+  }
+  #filterLabel {
+    gap: 0;
+    width: 16vh;
+    align-items: stretch;
+    text-align: center;
+    justify-content: center;
+    /* margin-left: 2vh; */
+    margin-right: 1vh;
+    display: flex;
+    z-index: 11;
+    flex-direction: column;
+  }
+
+
+  /* MOBILE HOME SCREEN */
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 6vh;
+    /* width: 95%; */
+    padding: 2vw;
+  }
+  .homeInfo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3vh;
+    /* width: 558px; */
+    /* top: 6vh; */
+  }
+  #homeTitle {
+    padding: 1vh;
+    font-size: 8vh;
+    /* width: 100%; */
+  }
+  .tips {
+    /* order: 3; */
+    display: none;
+  }
+  .home .viewer {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+    /* position: fixed; */
+    /* right: 0; */
+    /* align-items: center; */
+    justify-content: center; 
+     /* margin: auto; */
+    padding: 3vh;
+  }
+  .homeActorInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #homeActorNav {
+    display: flex;
+    align-items: center;
+  }
+  .homeActorButton {
+    cursor: pointer;
+    width: 50px;
+  }
+  .homeActorImg {
+    width: 100px;
+    height: 170px;
+    /* align-self: right; */
+    padding: 1vw;
+    padding-top: 3vw;
+  }
+  .homeRoleCarousel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 2vh;
+    overflow-x: auto;
+  }
+  #homePlayButton {
+    position: relative;
+    align-self: flex-end;
+    width: 80px;
+    right: 5vw;
+    /* top: 1000px; */
+    cursor: pointer;
+  }
+  .homeRoleCarousel::-webkit-scrollbar {
+    display: none;
+  }
+  .homeChar {
+    width: 60vw;
+    /* height: fit-content; */
+    /* margin-right: 10px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .homeCharImg {
+    width: inherit;
+    height: inherit;
+  }
+  .homeImgContainer {
+    height: 40vh;
+    width: 25.6vh;
+  }
+  .homeCharName {
+    color: var(--trim5);
+    /* font-size: 37.5px; */
+    /* max-width: 100%; */
+    width: 100%;
+    font-size: 2.5vh;
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+    overflow: hidden;
+    overflow-y: visible;
+    text-overflow: ellipsis;
+    /* word-wrap: break-word; */
+    scrollbar-width: 0;
+    /* line-height: 1em; */
+    /* height: 2.1em; */
+  }
+  .homeCharName:hover {
+    overflow: auto;
+    text-overflow: unset;
+    align-self: flex-start;
+    min-width: 100%;
+    width: fit-content;
+    height: fit-content;
+    overflow: visible;
+    /* padding: 0 20px 0 0; */
+    /* min-height: 2.1em; */
+    position: relative;
+    scrollbar-width: 0;
+    background-color: var(--bg);
+    z-index: 10;
+  }
+  .homeCharName::-webkit-scrollbar {
+    display: none;
+  }
+  #homeRightPane {
+    display: flex;
+    align-self: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 225px;
+  }
+  .firstActor {
+    background-color: var(--trim2);
+    height: fit-content;
+    font-size: 3vh;
+    /* align-self: auto; */
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
+    /* position: relative; */
+    top: 17vw;
+  }
+  .home #toTop {
+    display: none;
+
+    position: fixed;
+    width: 5vh;
+    z-index: 10000;
+    /* bottom: 2vh; */
+    right: 10vh;
+  }
+
+  .homeScrollArrow {
+    display: none;
+  }
+
+  /* /////////// END HOME ////////////////// */
+
+  /* MOBILE ANIME PAGE */
+
+  .show {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--bg); */
+    top: 6vh;
+    min-height: 100vh;
+    height: 100%;
+  }
+  .animeSearchSide {
+    position: relative;
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    right: 0px;
+    /* top: 8vh; */
+    z-index: 1;
+  }
+  #animeSearch {
+    align-self: flex-end;
+    margin-top: 1vh;
+    height: 5vh;
+    width: 29vh;
+    margin: 1vh 1vh 3vh 0;
+    font-size: 3vh;
+    border-width: .25vw;
+    border-radius: 1vw;
+    color: black;
+    /* margin: 0 3vh; */
+    padding-left: 1vw;
+  }
+  #begin {
+    position: relative;
+    margin: 10px;
+    margin-bottom: 3vh;
+    top: 1vh;
+    /* text-align: center; */
+    justify-self: start;
+    font-size: 3vh;
+  }
+  #animeTitle {
+    /* position: sticky; */
+    /* display: flex; */
+    text-align: center;
+    padding: 20px;
+    /* padding-top: 10vh; */
+    font-size: 5vh;
+    justify-content: center;
+  }
+  #filterInput {
+    position: relative;
+    width: 26vh;
+    /* left: 100px; */
+    margin-right: 1vh;
+    align-self: end;
+    border-radius: .5vw;
+    padding-left: .75vw;
+    font-size: 2vh;
+    color: black;
+  }
+  .showTitle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 3vw;
+    padding-bottom: 2vw;
+  }
+  .showInfo {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5vh;
+    padding-top: 20px;
+    gap: 0;
+    max-width: 90%;
+    padding-bottom: 100px;
+    justify-content: space-between;
+  }
+  #prevPage {
+    position: absolute;
+    background-color: var(--trim2);
+    height: fit-content;
+    font-size: 3vh;
+    bottom: 0;
+    left: 5%;
+    padding: 1vh;
+    border-width: .1vh;
+  }
+  #prevPage:disabled {
+    background-color: black;
+  }
+  #nextPage {
+    position: absolute;
+    background-color: var(--trim2);
+    height: fit-content;
+    font-size: 3vh;
+    bottom: 0;
+    right: 5%;
+    border-width: .1vw;
+    padding: 1vh;
+  }
+  #nextPage:disabled {
+    background-color: black;
+  }
+  .show #toTop {
+    position: fixed;
+    width: 50px;
+    bottom: 10vh;
+    right: 0;
+  }
+  #perPageSelector {
+    /* position: fixed; */
+    bottom: 0;
+    right: 19%;
+    color: black;
+    font-size: 2vh;
+    width: fit-content;
+  }
+  #animeFoot {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 18vh;
+    bottom: 0;
+    z-index: 0;
+  }
+  #animeFoot h2 {
+    font-size: 2vh;
+  }
+
+/* /////////// END ANIME /////////// */
+
+/* MOBILE ACTOR PAGE */
+
+.actorPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: start; */
+  gap: 25px;
+  background-color: var(--bg);
+  top: 6vh;
+  /* min-height: 100vh; */
+  height: 100%;
+}  
+#actorMain {
+  display: flex;
+}
+#actorTopPane {
+  display: flex;
+  flex-direction: column;
+}
+#actorTitle {
+  position: relative;
+  margin: 10px;
+  margin-bottom: 3vh;
+  top: 1vh;
+  text-align: center;
+  justify-self: start;
+  font-size: 4vh;
+}
+/* #actorRightPane {
+  margin-top: 5vh;
+} */
+.actorSearchSide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: end;
+  /* top: 8.08vh; */
+  right: 0px;
+  width: fit-content;
+  z-index: 1;
+}
+/* .actorSearchSide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-self: end;
+  top: 8.08vh;
+  right: 0px;
+  width: fit-content;
+  z-index: 1;
+} */
+#actorSearch {
+  align-self: flex-end;
+  top: 0;
+  height: 5vh;
+  width: 29vh;
+  margin: 1vh 1vh 3vh 0;
+  font-size: 3vh;
+  border-width: .25vw;
+  border-radius: 1vw;
+  color: black;
+  /* margin: 0 3vh; */
+  padding-left: 1vw;
+}
+.actorInfo {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  /* width: 25%; */
+  /* left: 70% ; */
+  top: 30%;
+  font-size: 1.6vh;
+  text-align: center;
+  /* margin-left: -300px; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  align-items: center;
+}
+.actorName {
+  padding: 1vw;
+  text-align: end;
+  font-size: 1.5vh;
+}
+.actorImg {
+  display: flex;
+  align-self: center;
+  width: 15vh;
+}
+.actorRoles {
+  /* margin-top: 3vh; */
+  margin-bottom: 30vh;
+  margin-left: 2vh;
+  gap: 1vw;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.actorRole {
+  position: relative;
+}
+.actorRole img {
+  width: 100%;
+}
+.info {
+  display: none;
+  /* margin: auto; */
+  padding: 10px;
+  /* top: 23.3vh; */
+  /* min-width: 30vh; */
+  width: 205px;
+  border-radius: 1vh;
+  z-index: 2;
+  position: absolute;
+  flex-direction: column;
+  /* max-width: 40vw; */
+}
+.info h3 {
+  color: var(--trim2);
+}
+.info p {
+  color: var(--bg);
+}
+.info a {
+  color: var(--trim1);
+}
+.actorRole img:hover {
+  box-shadow: 0vh 0vh 1vh .5vh  var(--trim3);
+}
+.actorRole img:hover + .info {
+  background-color: var(--trim5);
+  display: flex;
+  box-shadow: 0vh 0vh 1vh .3vh  var(--trim3);
+}
+.info:hover {
+  background-color: var(--trim5);
+  display: flex;
+  box-shadow: 0vh 0vh 1vh .3vh  var(--trim1);
+}
+.actorPage #toTop {
+  position: fixed;
+  width: 50px;
+  margin: 1vw;
+  bottom: 5vh;
+  right: 0;
+}
+
+
+} /* //////////// END MOBILE ////////////////*/
+
+
+
+/* DESKTOP ONLY */
+@media screen and (min-width: 600px) {
+  /* base styles */
+  input {
+    background-color: var(--white);
+  }
+  #begin {
+    margin: 5vw 5vw 0 5vw;
+    font-size: 2.8vw;
+  }
+  .roleHeader {
+    height: 100px;
+    width: 215px;
+    display: flex;
+    /* flex-direction: column-reverse; */
+    justify-content: center;
+    align-items: center;
+    border: 5px outset var(--trim4);
+    background-color: var(--darkgrey);
+  }
+  .roleHeader:has(#roleActor:hover) {
+    background-color: var(--trim3);
+  }
+  #roleActor {
+    width: min-content;
+    /* height: 100px; */
+    position: relative;
+    font-size: 1.5em;
+    /* display: flex;
+    flex-direction:column-reverse; */
+    text-align: center;
+    padding: 10px;
+    padding-top: 0;    
+    /* border-style: solid;
+    border-width: 3px 3px 3px 0;
+    border-color: white white transparent transparent; */
+  }
+  #roleActor:hover {
+    color: var(--trim5);
+    text-shadow: 0 0 10px black;
+    /* font-weight: bold; */
+  }
+  /* #roleActor::after {
+    content: '';
+    border-style: solid;
+    width: 10px;
+    height: 10px;
+    border-width: 3px 3px 3px 3px;
+    border-color: white white transparent transparent;
+    top: 0;
+    right: 0;
+    position: absolute;
+  } */
+  .roleGallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 30vw; */
+    padding: 20px 10px;
+    padding-top: 0;
+  }
+  #roleInner {
+    display: flex;
+    width: 225px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    /* padding: 5px;
+    padding-top: 0;
+    border: 5px ridge;
+    border-top: none; */
+  }
+  .roleGallery img {
+    width: 219px;
+    height: 344px;
+    align-self: center;
+    border: 3px solid var(--trim4);
+    object-fit: cover;
+  }
+  .roleTogglePrev {
+    background-color: var(--trim2);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    flex: none;
+    padding: 0;
+    font-size: 1em;
+    border-width: .3vh;
+  }
+  .roleToggleNext {
+    background-color: var(--trim2);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    /* align-self:stretch; */
+    flex: none;
+    padding: 0;
+    font-size: 1em;
+    border-width: .3vh;
+  }
+  .imgNav {
+    display: flex;
+    /* flex-direction: row; */
+    /* width: 225px; */
+    height: fit-content;
+    /* justify-content: ; */
+    align-items: center;
+    padding-top: 1vw;
+    justify-content: space-between;
+  }
+  .selectionDots {
+    display: flex;
+    flex: auto;
+    font-size: 25px;
+    text-align: center;
+    /* max-width: 6vw; */
+    flex-wrap: wrap;
+    padding-left: .3vw;
+    padding-right: .3vw;
+  }
+  .index {
+    /* text-align: end; */
+    font-size: 14px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: .5vw;
+  }
+  .roleGallery h4 {
+    color: var(--trim3);
+    font-size: 35px;
+    /* font-size: 1.5vw; */
+
+    width: 100%;
+    font-size: 1.5em;
+    /* font-size: 30px; */
+    /* font-size: 2.5vmin; */
+    /* text-align: center; */
+    min-height: 3em;
+    position: relative;
+    padding: 10px 20px 0 0;
+    overflow: hidden;
+    overflow-y: visible;
+    text-overflow: ellipsis;
+  }
+  .roleGallery h4:hover {
+    overflow: auto;
+    text-overflow: unset;
+    align-self: flex-start;
+    min-width: 100%;
+    width: fit-content;
+    height: fit-content;
+    overflow: visible;
+    /* padding: 0 20px 0 0; */
+    /* min-height: 2.1em; */
+    position: relative;
+    scrollbar-width: 0;
+    background-color: var(--bg);
+    z-index: 10;
+  }
+  #topTitle {
+    text-align: end;
+    padding: 10px;
+  }
+  #topTitle:hover {
+    text-shadow: 3px 3px 3px var(--trim1);
+  }
+  #moreTitles {
+    text-align: center;
+    margin-top: .5em;
+    width: fit-content;
+    align-self: center;
+    text-align: center;
+  }
+  .showsList {
+    display: none;
+    /* gap: 20px; */
+    text-align: left;
+    position: absolute;
+    max-height: 300px;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: auto;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    background-color: var(--darkgrey);
+    z-index: 5;
+    padding: 0 1em 1em 1em;
+  }
+  .showsList::-webkit-scrollbar {
+    width: 10px;
+    right: 5px;
+    /* display: none; */
+  }
+  /* .showsList::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  } */
+  .showsList::-webkit-scrollbar-track-piece {
+    width: 0;
+    border-radius: 10px;
+    background: black;
+  }
+  .showsList::-webkit-scrollbar-thumb {
+    background: var(--trim1);
+    border: 2px solid var(--trim5);
+    border-radius: 10px;
+  }
+  .showsList::-webkit-scrollbar-button {
+    display: none;
+  }
+  #moreTitles:hover + .showsList {
+    display: flex;
+  }
+  .showsList:hover {
+    display: flex;
+  }
+  .altTitles {
+    text-align: left;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    gap: .5vw;
+    padding: 20px;
+    border-bottom: .1vw solid var(--white);;
+  }
+  /* ///////////////// */
+
+  /* NAV BAR STYLES */
+  .nav {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    background-color: var(--darkgrey);
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    z-index: 10;
+    height: 3vw;
+    top: 0;
+    border: 0vw;
+    border-bottom: .1vw solid var(--white);
+  }
+  .nav ul {
+    padding: 0;
+    margin: 0;
+    /* height: 100%; */
+    list-style: none;
+    display: flex;
+  }
+  /* .nav h1 {
+    color: var(--trim1);
+    text-align: center;
+    font-size: 2.5vw;
+    padding: 1vw;
+  } */
+  .nav .links {
+    margin-left: auto;
+  }
+  .nav .site-title {
+    align-items: center;
+    font-size: 1.5vw;
+    padding: 0 2vw;
+    font-weight: bold;
+  }
+  #filter {
+    font-size: 1vw;
+  }
+  #unfilter {
+    /* height: 2vh; */
+    border-width: .1vw;
+    font-size: 1vw;
+    background-color: var(--lightgrey);  
+    padding: .1vw;
+  }
+  #filterLabel {
+    gap: 0;
+    position: relative;
+    align-items: stretch;
+    text-align: center;
+    width: fit-content;
+    height: 3vw;
+    width: 15vw;
+    margin-right: 2vw;
+    /* left: 25%; */
+    display: flex;
+    z-index: 11;
+    flex-direction: column;
+  }
+  #navLeftPane {
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
+    left: 0;
+    /* padding-right: 3vw; */
+  }
+  #navPages {
+    right: 0;
+    width: 42vw;
+    align-items: stretch;
+  }
+  .nav li.active {
+    background-color: var(--trim2);
+  }
+  .nav li:hover {
+    background-color: var(--trim2);
+  }
+  .nav a {
+    /* margin-left: 16px; */
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5vw;
+    height: 100%;
+    padding: 0 2vw;
+    display: flex;
+    text-align: center;
+    text-wrap: nowrap;
+  }
+  .nav a:hover {
+    color: var(--trim4);
+  }
+  #userSearchArea {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    padding: 0vh;
+    width: 100%;
+    /* height: 0vh; */
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  #userSearchInputs {
+    display: flex;
+    position: relative;
+    /* left: 1vw; */
+  }
+  #userSearch {
+    /* position: fixed; */
+    display: flex;
+    /* left: 38%; */
+    z-index: 11;
+    font-size: 2vw;
+    /* height: 2vw; */
+    background-color: var(--white);
+    color: black;
+    top: .25vw;
+    padding: 0vw 0vw 0vw .25vw;
+    border-width: .2vw;
+  }
+  /* #userSearchButton {
+    width: 200px;
+    transition: width 1s 2s;
+
+  } */
+  .nav button {
+    position: relative;
+    top: 0;
+    height: 100%;
+    z-index: 11;
+    font-size: 1.5vw;
+    background-color: var(--trim4);  
+    border-width: .2vw;
+    text-wrap: nowrap;
+    /* border-radius: 1vw; */
+    padding: 0 1vw 0 1vw;
+  }
+  #userTip {
+    /* display: flex; */
+    position: absolute;
+    visibility: hidden;
+    top: 3vw;
+    padding: 5px;
+    opacity: 0;
+    font-size: small;
+    background-color: var(--bg);
+    border: 4px inset var(--trim4);
+  }
+  #userSearchButton:hover ~ #userTip {
+    transition: all 1s 1s;
+    visibility: visible;
+    opacity: 100%;
+  }
+  #topTip {
+    display: flex;
+    position: absolute;
+    visibility: hidden;
+    width: 200px;
+    top: 3vw;
+    opacity: 0;
+    padding: 5px;
+    text-justify: auto;
+    font-size: small;
+    background-color: var(--bg);
+    border: 4px inset var(--trim4);
+  }
+  #top100Button:hover ~ #topTip {
+    transition: all 1s 1s;
+    visibility: visible;
+    opacity: 100%;
+  }
+  #filterTip {
+    display: none;
+  }
+
+
+
+  /* DESKTOP HOME PAGE */
+
+  
+  .home {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 2vw;
+  }
+  .homeInfo {
+    display: flex;
+    flex-direction: column;
+    /* padding-left: 30px; */
+    /* width: 800px; */
+    align-self: flex-start;
+  }
+  .homeInfo h6 {
+    padding-left: 40px;
+  }
+  .homeInfo h2 {
+    padding-left: 40px;
+  }
+  .homeInfo h5 {
+    padding-left: 40px;
+  }
+  .tips {
+    margin-top: 100px;
+    display: none;
+  }
+  .home .viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* position: fixed; */
+    /* right: 0; */
+    margin: auto;
+    /* align-self: flex-end; */
+    padding-bottom: 50px;
+  }
+  #homeTopHalf {
+    display: block;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .homeRoleGallery {
+    display: flex;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    width: 95%;
+    /* margin-right: 2vw; */
+  }
+  .homeRoleGallery h4 {
+    font-size: 50px;
+  }
+  .home #topTitle {
+    font-size: 18px;
+    text-align: center;
+    /* align-self: end; */
+  }
+  .home .selectionDots {
+    font-size: 50px;
+  }
+  .home .index {
+    font-size: 16px;
+  }
+  .home #roleActor {
+    width: fit-content;
+    font-size: 2em;
+  }
+  /* .home #roleActor::after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  } */
+  .home #roleActor:hover {
+    text-shadow: 0 0 10px var(--trim4);
+    color: var(--white);
+  }
+  .home #roleInner {
+    width: 337.5px;
+  }
+  .homeActorInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #homeActorNav {
+    display: flex;
+    align-items: center;
+  }
+  .homeActorButton {
+    cursor: pointer;
+    width: 50px;
+  }
+  .homeActorImg {
+    width: 150px;
+    /* height: 350px; */
+    padding: 1vw;
+    /* padding-top: 3vw; */
+    flex-direction: column-reverse;
+  }
+  .homeRoleCarousel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+  }
+  .homeScrollArrow {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    position: relative;
+    top: 125px;
+  }
+  #homePlayButton {
+    position: relative;
+    align-self: flex-end;
+    width: 100px;
+    right: 5vw;
+    /* top: 1000px; */
+    cursor: pointer;
+  }
+  .homeRoleCarousel::-webkit-scrollbar {
+    display: none;
+  }
+  .homeChar {
+    width: 225px;
+    /* height: fit-content; */
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* @container homeChar (min-width:225px) {
+    .homeCharName {
+      font-size: 2em;
+    }
+  } */
+  .homeCharImg {
+    width: 225px;
+    height: 350px;
+  }
+  .homeImgContainer {
+    width: 225px;
+    height: 350px;
+  }
+  .homeCharName {
+    color: var(--trim3);
+    /* font-size: 37.5px; */
+    /* max-width: 100%; */
+    width: 100%;
+    font-size: 2.5vmin;
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+    overflow: hidden;
+    overflow-y: visible;
+    text-overflow: ellipsis;
+    /* word-wrap: break-word; */
+    scrollbar-width: 0;
+    /* line-height: 1em; */
+    /* height: 2.1em; */
+  }
+  .homeCharName:hover {
+    overflow: auto;
+    text-overflow: unset;
+    align-self: flex-start;
+    min-width: 100%;
+    width: fit-content;
+    height: fit-content;
+    overflow: visible;
+    /* padding: 0 20px 0 0; */
+    /* min-height: 2.1em; */
+    position: relative;
+    scrollbar-width: 0;
+    background-color: var(--bg);
+    z-index: 10;
+  }
+  .homeCharName::-webkit-scrollbar {
+    display: none;
+  }
+  /* .homeCharName::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  } */
+
+  .firstActor {
+    background-color: var(--trim2);
+    height: fit-content;
+    font-size: min(50px, 2vw);
+    /* align-self: auto; */
+    /* margin: auto; */
+    /* margin-bottom: auto; */
+    position: relative;
+    align-self: center;
+    padding: 20px;
+    /* top: 17vw; */
+  }
+
+
+
+
+  /* DESKTOP ANIME PAGE */
+  
+  .show {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--bg); */
+    top: 0;
+    /* min-height: 100vh; */
+    height: 100%;
+  }
+  #animeTitle {
+    /* position: sticky; */
+    /* display: flex; */
+    text-align: center;
+    padding: 20px;
+    font-size: 8vh;
+    justify-content: center;
+  }
+  .animeSearchSide {
+    position: relative;
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    right: 0px;
+    /* top: 15vw; */
+    z-index: 1;
+  }
+  #animeSearch {
+    height: 3vw;
+    width: 22vw;
+    font-size: 2vw;
+    border-width: .25vw;
+    border-radius: 1vw;
+    color: black;
+    margin: 0 1vw 1vw 1vw;
+    padding-left: 1vw;
+  }
+  .show .header h1 {
+    width: 30vw;
+    text-align: center;
+    margin: auto;
+  }
+  #filterInput {
+    position: relative;
+    align-self: end;
+    height: 3vw;
+    width: 22vw;
+    font-size: 1.5vw;
+    border-width: .25vw;
+    border-radius: 1vw;
+    background-color: var(--white);
+    color: black;
+    margin: 0 1vw;
+    padding-left: 1vw;
+  }
+  .showTitle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 3vw;
+    padding-bottom: 2vw;
+  }
+  .showInfo {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-right: auto;
+    gap: 0;
+    max-width: 100%;
+    height: max-content;
+    padding: 50px 20px 400px 20px;
+    justify-content: center;
+
+  }  
+  .pageButton {
+    background-color: var(--trim2);
+    height: 3vh;
+    min-height: 20px;
+    font-size: 1.2vw;
+    bottom: 0px;
+    padding: 0 1vw;
+    border: .4vh outset var(--bg);
+  }
+  /* #prevPage {
+  } */
+  .pageButton:disabled {
+    background-color: var(--bg);
+    border-style: inset;
+  }
+  .show #toTop {
+    /* position: fixed; */
+    width: 5vh;
+    height: 5vh;
+    margin-right: 1vw;
+    bottom: 0;
+    right: 0;
+  }
+  #perPageSelector {
+    /* position: fixed; */
+    bottom: 0;
+    right: 19%;
+    color: var(--bg);
+    font-size: 1.5vh;
+    width: fit-content;
+  }
+  option {
+    color: var(--bg);
+    font-size: 1.5vh;
+  }
+  #animeFoot {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1vw;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color:var(--bg);    
+    border-top: .3vh solid var(--white);
+  }
+  #animeFoot h2 {
+    font-size: 1.5vh;
+  }
+
+  /* //////////////// END DESKTOP ANIME ///////////////// */
+
+
+/* /////////////////////////////// */
+
+  /* DESKTOP ACTOR PAGE */
+
+.actorPage {
+  position: relative;
+  display: flex;
+  /* flex-direction: column; */
+  /* background-color: var(--bg); */
+  top: 0;
+  /* min-height: 100vh; */
+  height: 100%;
+}
+.actorSearchSide {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  right: 0px;
+  top: 11.62vw;
+  z-index: 1;
+}
+#actorSearch {
+  align-self: flex-end;
+  right: 0px;
+  top: 0;
+  height: 3vw;
+  width: 22vw;
+  font-size: 2vw;
+  border-width: .25vw;
+  border-radius: 1vw;
+  color: black;
+  margin: 0 1vw;
+  padding: 1vw;
+}
+.results {
+  position: absolute;
+  display: none;
+  margin: 0 1vw;
+  right: 0px;
+  top: 3vw;
+  flex-direction: column;
+  font-size: 1.75vw;
+}
+.search:focus + .results {
+  display: flex;
+}
+.results:hover {
+  display: flex;
+}
+.resBox {
+  /* position: relative; */
+  text-align: left;
+  /* right: 0; */
+  background-color: var(--bg);
+  border: var(--trim1) ridge .25vw;
+  border-radius: 1vw;
+  margin: .1vw;
+  width: 20vw;
+  padding-left: 1vw;
+  cursor: pointer;
+  text-decoration: none;
+}
+#actorTitle {
+  display: none;
+}
+.actorInfo {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  right: 1vw;
+  top: 18vw;
+  font-size: 1.6vh;
+  text-align: center;
+  /* margin-left: -300px; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  align-items: center;
+}
+.actorImg {
+  display: flex;
+  align-self: center;
+  width: 40%;
+}
+/* 
+.actorRoles {
+  margin-top: 1vh;
+  margin-bottom: 30vh;
+  margin-left: 2vh;
+  gap: 1vw;
+  width: 70%;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+.actorRole {
+  height: 23.3vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.actorRoles img {
+  width: 15vh;
+  height: 23.3vh;
+} */
+.actorRoles {
+  margin-top: 1vw;
+  margin-bottom: 30vw;
+  margin-left: 2vw;
+  gap: 1vw;
+  width: 70%;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+.actorRole {
+  /* height: 23.3vh; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.actorRoles img {
+  /* width: 15vh;
+  height: 23.3vh; */
+  width: 225px;
+  height: 350px;
+}
+.info {
+  display: none;
+  margin: auto;
+  padding: 10px;
+  top: 350px;
+  width: 205px;
+  /* min-width: 20vw; */
+  border-radius: 1vh;
+  z-index: 2;
+  position: absolute;
+  flex-direction: column;
+  /* max-width: 40vw; */
+}
+.info h3 {
+  color: var(--trim5);
+}
+.info p {
+  color: var(--white);
+}
+.info a {
+  color: var(--trim5);
+}
+.actorName {
+  padding: 1vw;
+  text-align: end;
+  font-size: 1.5vw;
+}
+.actorRole img:hover {
+  box-shadow: 0vh 0vh 1vh .75vh  var(--trim2);
+}
+.actorRole img:hover + .info {
+  background-color: var(--trim3);
+  display: flex;
+  box-shadow: 0vh .5vh 1vh .75vh  var(--trim2);
+  /* gap: 10px; */
+  /* left: 15vh; */
+}
+.info:hover {
+  background-color: var(--trim2);
+  display: flex;
+  box-shadow: 0vh 0vh 1vh 1vh var(--trim3);
+  /* gap: 10px; */
+  /* left: 15vh; */
+}
+.actorPage #toTop {
+  position: fixed;
+  width: 50px;
+  margin: 1vw;
+  bottom: 0;
+  right: 0;
+}
+
+/* /////////// END DESKTOP ACTOR /////////// */
+
+}
