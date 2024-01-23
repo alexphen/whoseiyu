@@ -14,7 +14,6 @@ const ImageURL  = 3;
 //const topActors = [118, 185, 65, 672, 869, 34785, 212, 2, 270, 591, 99, 11817, 8, 87]
 // var actorsLeft = [];
 var started = false;
-var cache;
 
 const Home = ({user, myList}) => {
     
@@ -49,7 +48,6 @@ const Home = ({user, myList}) => {
         // console.log("HA from []")
         getHomeActors();
         // started = false;
-        cache = {};
     }, [])
 
     useEffect(() => {
@@ -181,8 +179,7 @@ const Home = ({user, myList}) => {
                             actorName={actor[ActorName]} 
                             actorImg={actor[ImageURL]}
                             flag={filterFlag} user={user} 
-                            myList={myList}
-                            cache={cache}/>
+                            myList={myList}/>
                     </div>
                     {/* <img id="toTop" src={require("../toTop.png")} onClick={toTop}></img> */}
                 </>
@@ -214,38 +211,3 @@ const Home = ({user, myList}) => {
 }
  
 export default Home;
-
-
-// {/* <div className="viewer">
-//                 {/* {combineRoles()} */}
-//                 {actorID > 0 //started //actor[0] !== 0
-//                     ? <>
-//                         {console.log("index", index)}
-//                         {/* {console.log(topActors)} */}
-//                         {/* Actor Name */}
-//                         <Link id="roleActor" to={`/Actor/${actorID}`}>{actor[ActorName]}</Link>
-//                         {/* Actor Image and Nav*/}
-//                         <div id="homeActorNav">
-//                             <button className="homeActorButton" onClick={() => prevActor()}>{"←"}</button>
-//                             <img className="homeActorImg" src={actor[ImageURL]} alt={actor[ActorName]}></img>
-//                             <button className="homeActorButton" onClick={() => nextActor()}>{"→"}</button>
-//                         </div>
-//                         <HomeRoles 
-//                             actorID={actorID} 
-//                             actorName={actor[ActorName]} 
-//                             actorImg={actor[ImageURL]}
-//                             flag={filterFlag} user={user} 
-//                             myList={myList}
-//                             cache={cache}/> 
-//                         {/* <ShowRoleToggle  
-//                                 id="topActor" 
-//                                 actorID={actorID} 
-//                                 actorName={actor[ActorName]} 
-//                                 flag={filterFlag} user={user} 
-//                                 myList={myList}
-//                                 cache={cache}/> */}
-//                         </>
-//                     :<button className="firstActor" onClick={start}>Take a Look!</button>
-//                 }
-//                 {console.log("img ", actor.img)}
-//             </div>

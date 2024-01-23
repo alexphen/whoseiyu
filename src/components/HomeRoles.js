@@ -20,7 +20,7 @@ var timeID;
 var started = false;
 
 
-const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList, cache}) => {
+const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList}) => {
 
     // console.log("actorID received ", actorID)
     
@@ -49,16 +49,9 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList, ca
     useEffect(() => {
         // console.log(1, prevUser, 2, user)
         if (!_.isEqual(prevUser.current, user)) {
-            // debugger
-            cache = {};
-            // getRoles(actorID);
+            getRoles(actorID);
         }
         prevUser.current = user
-        // if (!_.isEqual(prevUser, user)) {
-        //     console.log("changed")
-        //     getRoles(actorID)
-        //     cache = {};
-        // }
     }, [user])
 
     useEffect(() => {
@@ -100,32 +93,23 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList, ca
     // }, []);
     
     const getRoles = async(actID) => {
-        // console.log("rioling")
-        if (cache && cache[actID]) {
-            setRoleReturn(cache[actID])
+        const roleData = await fetch ('https://whoseiyu-api.onrender.com/api/roles', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                ActorID: actID,
+                myList: myList,
+                flag: filterFlag
+            })
+        }).then(res => res.json())
+        // console.log(roleData)
+        for (let i in roleData) {
+            roleData[i] = Object.values(roleData[i])
         }
-        else {
-            cache[actorID] = [];
-            const roleData = await fetch ('https://whoseiyu-api.onrender.com/api/roles', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    ActorID: actID,
-                    myList: myList,
-                    flag: filterFlag
-                })
-            }).then(res => res.json())
-            // console.log(roleData)
-            for (let i in roleData) {
-                roleData[i] = Object.values(roleData[i])
-            }
-            setRoleReturn(Object.values(roleData));
-            // console.log(Object.values(roleData))
-            cache[actorID] = Object.values(roleData)
-        }
+        setRoleReturn(Object.values(roleData));
     }
 
 
