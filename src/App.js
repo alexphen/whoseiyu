@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Actor from "./pages/Actor";
 import { Link, useMatch, useResolvedPath, useSearchParams } from "react-router-dom"
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { useCookies, withCookies } from "react-cookie";
 import { useState, useEffect } from "react";
 import OAuth from "./pages/OAuth";
 
@@ -22,6 +22,8 @@ function App() {
 
 	
 	useEffect(() => {
+		// removeCookie("acc")
+		// removeCookie("list")
 		removeCookie("veri")
 		removeCookie("token")
 	}, []);
@@ -51,8 +53,9 @@ function App() {
 		}
 	}, [user]);
 
-	// setInterval(() => {
-	// }, 1000)
+	setInterval(() => {
+		console.log("APP", cookies)
+	}, 5000)
 
 
 	// useEffect(() => {
@@ -69,7 +72,9 @@ function App() {
 
 
 	const getMALData = async() => {
+		// ignore if username field is empty
 		if (entry != "" && entry != user) {
+			// if an access token is stored
 			if (cookies.token && cookies.token["access_token"]) {
 				console.log("getting MAL authorized data")
 				try {
@@ -120,13 +125,14 @@ function App() {
 					})
 					.then(res => res.json());
 					// if failed, open OAuth window
+					console.log(malData)
 					if (!malData["data"]) {
 						try {
 							let authURL = malData["url"];
 							setVeri(malData["veri"]);
-							setCookie("veri", malData["veri"]);
+							setCookie("veri", malData["veri"], {path: '/'});
 							// navigate("/OAuth");
-							authPopup = window.open(authURL, "", `left=${window.screenLeft},top=${window.screenTop},width=600,height=800`);
+							authPopup = withCookies(window.open(authURL, "", `left=${window.screenLeft},top=${window.screenTop},width=600,height=800`));
 							authPopup.addEventListener('unload', console.log("closed"))
 						} catch (error) {
 							alert("Your List is marked as private. Please make it public to use this feature.")
@@ -328,8 +334,8 @@ function App() {
 		setUser("")
 		setMyList([])
 		setEntry("")
-		setCookie('acc', "", {path: '/'})
-		setCookie('list', "", {path: '/'})
+		removeCookie('acc')
+		removeCookie('list')
 	}
 
 }

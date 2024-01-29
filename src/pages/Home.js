@@ -53,21 +53,21 @@ const Home = ({user, myList}) => {
     useEffect(() => {
         // console.log(prevList.current)
         if (!_.isEqual(prevList.current, myList)) {
-            setIndex(0);
+            // setIndex(0);
             getHomeActors()
-            // if (started) {
-            //     nextActor()
-            // }
         }
         prevList.current = myList;
     }, [myList])
 
     useEffect(() => {
-        getData(topActors[0]);
-        if(started) {
-            setActorID(topActors[0]);
-        }
+        getData(actorID);
+        // if(started) {
+        //     setActorID(topActors[]);
+        // }
     }, [topActors])
+
+    useEffect(() => {
+    }, [actor]);
 
     const getHomeActors = async() => {
         const actorData = await fetch('https://whoseiyu-api.onrender.com/api/homeActor', {

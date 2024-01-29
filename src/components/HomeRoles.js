@@ -132,19 +132,14 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList}) =
                         onMouseLeave={stopScroll}
                     ></img>
                     {/*onMouseDown={scrollBack} onMouseUp={stopScroll}>*/}
-                    <div
-                        id="rolesContainer"
-                        className="homeRoleCarousel"
-                        onMouseDown={stopScroll}
-                        onTouchStart={stopScroll}
-                        // onMouseOut={resumeScroll}
-                        >
-                    {roleReturn.map((role, i) =>
-                        <HomeChar key={i} 
-                            charName={role[CharName]} 
-                            charImg={role[ImageURL]} 
-                            topTitleID={role[ShowID][0]} 
-                            topTitle={role[Title][0]}/>
+                    <div className="homeRoleCarouselShadow"></div>
+                    <div id="rolesContainer" className="homeRoleCarousel" onMouseDown={stopScroll} onTouchStart={stopScroll} >
+                        {roleReturn.map((role, i) =>
+                            <HomeChar key={i} 
+                                charName={role[CharName]} 
+                                charImg={role[ImageURL]} 
+                                topTitleID={role[ShowID][0]} 
+                                topTitle={role[Title][0]}/>
                     )}
                     </div>
                     <img className="homeScrollArrow" 
