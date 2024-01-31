@@ -11,10 +11,9 @@ const ShowID    = 5;
 const Title     = 7;
 const rank      = 8;
 
-const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myList, cache}) => {
+const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myList}) => {
 
     // console.log("actorID received ", actorID)
-    // console.log(cache)
     
     const [pos, setPos] = useState(0);
     const [posDot, setPosDot] = useState(pos);
@@ -39,18 +38,12 @@ const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myLis
     // }
 
     useEffect(() => {
-        // debugger
-        // console.log(cache)
-        if (!(cache && cache[actorID])) {
-            // console.log("roles []")
             getRoles(actorID);
-        }
     }, [])
     
     useEffect(() => {
         // console.log(1, prevUser, 2, user)
         if (!_.isEqual(prevUser.current, user)) {
-            console.log("roles [user]")
             cache = {};
             actors = [];
             getRoles(actorID);
@@ -61,7 +54,6 @@ const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myLis
     useEffect(() => {
         if (!_.isEqual(prevActor.current, actorID)) {
             // console.log("roles [actorID]")
-            cache = {};
             getRoles(actorID);
             restart();
         }
@@ -81,12 +73,8 @@ const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myLis
     const getRoles = async(actID) => {
         // console.log("ID sent to roles ", actID)
         // console.log(1, user, 2, prevUser)
+        // avoid duplicates
         if (!actors.includes(actID)) {
-            if (cache && cache[actID]) {
-                handleRoles();
-                setRoleReturn(cache[actID]);
-            }
-            else {
                 actors.push(actID)
                 const roleData = await fetch ('https://whoseiyu-api.onrender.com/api/roles', {
                     method: 'POST',
@@ -106,8 +94,6 @@ const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myLis
                 }
                 setRoleReturn(Object.values(roleData));
                 // console.log(Object.values(roleData))
-                // cache[actorID] = Object.values(roleData)
-            }
         }
         else {
         }
@@ -253,7 +239,6 @@ function next() {
         combineRoles();
         bubbleSort(roleReturn, roleReturn.length);
         findPrimary();
-        cache[actorID] = roleReturn;
      }
 
      function combineRoles() {

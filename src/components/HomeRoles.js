@@ -95,32 +95,23 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList}) =
     // }, []);
     
     const getRoles = async(actID) => {
-        // console.log("rioling")
-        if (cache && cache[actID]) {
-            setRoleReturn(cache[actID])
+        const roleData = await fetch ('https://whoseiyu-api.onrender.com/api/roles', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                ActorID: actID,
+                myList: myList,
+                flag: filterFlag
+            })
+        }).then(res => res.json())
+        // console.log(roleData)
+        for (let i in roleData) {
+            roleData[i] = Object.values(roleData[i])
         }
-        else {
-            cache[actorID] = [];
-            const roleData = await fetch ('https://whoseiyu-api.onrender.com/api/roles', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    ActorID: actID,
-                    myList: myList,
-                    flag: filterFlag
-                })
-            }).then(res => res.json())
-            // console.log(roleData)
-            for (let i in roleData) {
-                roleData[i] = Object.values(roleData[i])
-            }
-            setRoleReturn(Object.values(roleData));
-            // console.log(Object.values(roleData))
-            cache[actorID] = Object.values(roleData)
-        }
+        setRoleReturn(Object.values(roleData));
     }
 
 
@@ -143,19 +134,14 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList}) =
                         onMouseLeave={stopScroll}
                     ></img>
                     {/*onMouseDown={scrollBack} onMouseUp={stopScroll}>*/}
-                    <div
-                        id="rolesContainer"
-                        className="homeRoleCarousel"
-                        onMouseDown={stopScroll}
-                        onTouchStart={stopScroll}
-                        // onMouseOut={resumeScroll}
-                        >
-                    {roleReturn.map((role, i) =>
-                        <HomeChar key={i} 
-                            charName={role[CharName]} 
-                            charImg={role[ImageURL]} 
-                            topTitleID={role[ShowID][0]} 
-                            topTitle={role[Title][0]}/>
+                    <div className="homeRoleCarouselShadow"></div>
+                    <div id="rolesContainer" className="homeRoleCarousel" onMouseDown={stopScroll} onTouchStart={stopScroll} >
+                        {roleReturn.map((role, i) =>
+                            <HomeChar key={i} 
+                                charName={role[CharName]} 
+                                charImg={role[ImageURL]} 
+                                topTitleID={role[ShowID][0]} 
+                                topTitle={role[Title][0]}/>
                     )}
                     </div>
                     <img className="homeScrollArrow" 

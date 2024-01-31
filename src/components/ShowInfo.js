@@ -10,7 +10,6 @@ const   CharName    = 0,
         ImageURL    = 4;
 
 var set = false;
-var cache = {};
 
 const ShowInfo = ({ user, myList, flag }) => {
 
@@ -64,7 +63,6 @@ const ShowInfo = ({ user, myList, flag }) => {
         // console.log(id)
         // if ID actually changed
         if(!_.isEqual(prevID.current, id)) {
-            console.log("cleared cache")
             cache = {}
             if (id > 0) {
                 setShowSelected([id, Title])
@@ -200,7 +198,6 @@ const ShowInfo = ({ user, myList, flag }) => {
             {/* {console.log("dispActors", dispActors.length, "actors", actors.length, "count", count)} */}
             {/* <h1 className="showTitle">{Title}</h1> */}
             {/* <h1>{page}</h1> */}
-            {/* {console.log("cache", cache)} */}
             <div className="showInfo">
                 {removeDups()}
                 {console.log(cache)}

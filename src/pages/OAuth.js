@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import App from "../App";
 
-const OAuth = ({ cookies, setCookie, authorized }) => { //setToken
+const OAuth = ({ authorized }) => { //setToken
 
-    // const [cookies, setCookie, removeCookie] = useCookies(["list", "acc", "veri", "token"])
+	const [cookies, setCookie, removeCookie] = useCookies(["list", "acc", "veri", "token", "auth"])
     const [searchParams, setSearchParams] = useSearchParams();
     const code = searchParams.get('code')
     // const [authToken, setAuthToken] = useState(token)
@@ -15,7 +15,7 @@ const OAuth = ({ cookies, setCookie, authorized }) => { //setToken
     // }, [authToken]);
 
     const authorize = async() => {
-        // console.log('actID', actID)
+        console.log('called auth')
         const oauth = await fetch('https://whoseiyu-api.onrender.com/api/auth', {
           method: 'POST',
           headers: {
@@ -33,7 +33,7 @@ const OAuth = ({ cookies, setCookie, authorized }) => { //setToken
         setCookie("token", oauth, {path: '/'})
         setCookie("auth", true, {path: '/'});
         // setCookie("token", oauth)
-        // console.log("actorData", actorData)
+        console.log("auth", oauth)
     }
 
 	// setInterval(() => {
@@ -44,7 +44,6 @@ const OAuth = ({ cookies, setCookie, authorized }) => { //setToken
 	// }, 1000)
     
     useEffect(() => {
-        // setCookie("token", 12345)
         authorize();
     }, []);
 
