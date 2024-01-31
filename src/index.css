@@ -1560,7 +1560,7 @@ button:hover {
     background-color: var(--trim2);
     height: 3vh;
     min-height: 20px;
-    font-size: 1.2vw;
+    font-size: 1.2vh;
     bottom: 0px;
     padding: 0 1vw;
     border: .4vh outset var(--bg);
