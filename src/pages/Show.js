@@ -86,7 +86,7 @@ export default function Show({user, myList}) {
                         <div className="results">
                             {/* Display 10 filtered results. Change Show on click */}
                             {titles.slice(0,10).map((title, index) => (
-                                <Link to={`/Anime/${shows[index]}/${title}`} className="resBox">{title}</Link>
+                                <Link to={`/Anime/${shows[index]}/${title}`} key={index} className="resBox">{title}</Link>
                             ))}
                         </div>
                     </div>

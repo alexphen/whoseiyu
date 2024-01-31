@@ -14,7 +14,6 @@ const ImageURL  = 3;
 //const topActors = [118, 185, 65, 672, 869, 34785, 212, 2, 270, 591, 99, 11817, 8, 87]
 // var actorsLeft = [];
 var started = false;
-var cache;
 
 const Home = ({user, myList}) => {
     
@@ -49,13 +48,12 @@ const Home = ({user, myList}) => {
         // console.log("HA from []")
         getHomeActors();
         // started = false;
-        cache = {};
     }, [])
 
     useEffect(() => {
         // console.log(prevList.current)
         if (!_.isEqual(prevList.current, myList)) {
-            setIndex(0);
+            // setIndex(0);
             getHomeActors()
             // if (started) {
             //     nextActor()
@@ -65,9 +63,10 @@ const Home = ({user, myList}) => {
     }, [myList])
 
     useEffect(() => {
-        getData(topActors[0]);
+        getData(actorID);
+        // getData(topActors[0]);
         if(started) {
-            setActorID(topActors[0]);
+            // setActorID(topActors[0]);
         }
     }, [topActors])
 
@@ -181,8 +180,7 @@ const Home = ({user, myList}) => {
                             actorName={actor[ActorName]} 
                             actorImg={actor[ImageURL]}
                             flag={filterFlag} user={user} 
-                            myList={myList}
-                            cache={cache}/>
+                            myList={myList}/>
                     </div>
                     {/* <img id="toTop" src={require("../toTop.png")} onClick={toTop}></img> */}
                 </>

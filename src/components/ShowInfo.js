@@ -64,6 +64,7 @@ const ShowInfo = ({ user, myList, flag }) => {
         // console.log(id)
         // if ID actually changed
         if(!_.isEqual(prevID.current, id)) {
+            console.log("cleared cache")
             cache = {}
             if (id > 0) {
                 setShowSelected([id, Title])
@@ -202,20 +203,19 @@ const ShowInfo = ({ user, myList, flag }) => {
             {/* {console.log("cache", cache)} */}
             <div className="showInfo">
                 {removeDups()}
+                {console.log(cache)}
                 {bubbleSortActors(actors, actors.length)}
                 {dispActors.length > 0 && set
                     ? dispActors.slice(perPage*page, perPage*page + perPage).map((actor, n) =>  
-                            <>
                             <ShowRoleToggle key={n}
-                                                actorID={actor[ActorID]}
-                                                actorName={actor[ActorName]}
-                                                actorImg={actor[ImageURL]}
-                                                showID={id}
-                                                flag={flag}
-                                                user={user}
-                                                myList={myList}
-                                                cache={cache}/>                                     
-                            </>
+                                            actorID={actor[ActorID]}
+                                            actorName={actor[ActorName]}
+                                            actorImg={actor[ImageURL]}
+                                            showID={id}
+                                            flag={flag}
+                                            user={user}
+                                            myList={myList}
+                                            cache={cache}/>
                     )
                     
                     : <>{actors.length > 0
