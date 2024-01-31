@@ -11,7 +11,7 @@ const ShowID    = 5;
 const Title     = 7;
 const rank      = 8;
 
-const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myList}) => {
+const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myList, cache}) => {
 
     // console.log("actorID received ", actorID)
     

@@ -10,6 +10,7 @@ const   CharName    = 0,
         ImageURL    = 4;
 
 var set = false;
+var cache = {};
 
 const ShowInfo = ({ user, myList, flag }) => {
 
