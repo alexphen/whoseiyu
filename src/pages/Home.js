@@ -64,6 +64,7 @@ const Home = ({user, myList}) => {
         // if(started) {
         //     setActorID(topActors[]);
         // }
+        // getData(topActors[0]);
     }, [topActors])
 
     useEffect(() => {

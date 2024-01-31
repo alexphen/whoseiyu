@@ -44,15 +44,11 @@ const ShowRoleToggle = ({actorID, actorName, actorImg, showID, flag, user, myLis
     useEffect(() => {
         // console.log(1, prevUser, 2, user)
         if (!_.isEqual(prevUser.current, user)) {
-            // console.log("roles [user]")
+            cache = {};
             actors = [];
             getRoles(actorID);
         }
-        prevUser.current = user
-        // if (!_.isEqual(prevUser, user)) {
-        //     console.log("changed")
-        //     getRoles(actorID)
-        // }
+        prevUser.current = user;
     }, [user])
 
     useEffect(() => {

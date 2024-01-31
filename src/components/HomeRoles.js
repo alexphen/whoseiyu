@@ -18,7 +18,7 @@ const SPEED = 10;
 var intID;
 var timeID;
 var started = false;
-
+var cache = {};
 
 const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList}) => {
 
@@ -49,9 +49,11 @@ const HomeRoles = ({actorID, actorName, actorImg, showID, flag, user, myList}) =
     useEffect(() => {
         // console.log(1, prevUser, 2, user)
         if (!_.isEqual(prevUser.current, user)) {
+            // debugger
+            cache = {};
             getRoles(actorID);
         }
-        prevUser.current = user
+        prevUser.current = user;
     }, [user])
 
     useEffect(() => {
