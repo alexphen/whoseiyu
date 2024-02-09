@@ -3,13 +3,16 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import App from "../App";
 
-const OAuth = ({ authorized }) => { //setToken
+var code;
 
-	const [cookies, setCookie, removeCookie] = useCookies(["list", "acc", "veri", "token", "auth"])
+const OAuth = ({ authorized }) => { //setToken
+    
+	const [cookies, setCookie, removeCookie] = useCookies(["veri", "token", "auth"])
     const [searchParams, setSearchParams] = useSearchParams();
-    const code = searchParams.get('code')
+    code = searchParams.get('code')
     // const [authToken, setAuthToken] = useState(token)
 
+    console.log(cookies)
     // useEffect(() => {
     //     setToken(authToken);
     // }, [authToken]);
@@ -54,10 +57,11 @@ const OAuth = ({ authorized }) => { //setToken
         </div>
      );
 
-        function submit() {
-            window.close();
-        }
-
+    function submit() {
+        window.close();
+    }
+    
+    
 }
- 
+
 export default OAuth;

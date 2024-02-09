@@ -51,6 +51,7 @@ a {
   font-family: "Rubik Doodle Shadow";
   font-size: 100px;
   padding: 40px;
+  max-width: 100%;
 }
 button {
   cursor: pointer;
@@ -1256,16 +1257,23 @@ button:hover {
     display: flex;
     flex-direction: column;
     /* padding-left: 30px; */
-    /* width: 800px; */
+    width: 50%;
     align-self: flex-start;
-  }
-  .homeInfo h6 {
-    padding-left: 40px;
   }
   .homeInfo h2 {
     padding-left: 40px;
+    max-width: 100%;
+  }
+  .homeInfo h3 {
+    padding-left: 40px;
+    max-width: 100%;
+  }
+  .homeInfo h4 {
+    padding-left: 40px;
+    max-width: 100%;
   }
   .homeInfo h5 {
+    max-width: 100%;
     padding-left: 40px;
   }
   .tips {

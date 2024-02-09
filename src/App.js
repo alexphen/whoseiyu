@@ -1,20 +1,22 @@
 import Show from "./pages/Show";
 import Home from "./pages/Home";
 import Actor from "./pages/Actor";
+import OAuth from "./pages/OAuth";
 import { Link, useMatch, useResolvedPath, useSearchParams } from "react-router-dom"
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useCookies, withCookies } from "react-cookie";
 import { useState, useEffect } from "react";
-import OAuth from "./pages/OAuth";
 
 function App() {
 
 	const [cookies, setCookie, removeCookie] = useCookies(["list", "acc", "veri", "token", "auth"])
-	const [entry, setEntry]  	= useState(cookies.acc || "");
-	const [myList, setMyList] 	= useState(cookies.list || "");
-  	const [user, setUser]     	= useState(cookies.acc || "");
-	const [veri, setVeri]		= useState(cookies.veri || "");
+	const [entry, setEntry]  			= useState(cookies.acc || "");
+	const [myList, setMyList] 			= useState(cookies.list || "");
+	const [user, setUser]     			= useState(cookies.acc || "");
+	const [veri, setVeri]				= useState(cookies.veri || "");
+	const [authData, setAuthData]		= useState([]);
 
+	var authURL;
 	var authPopup;
 	var authorized = false;
 
@@ -25,7 +27,7 @@ function App() {
 		// removeCookie("acc")
 		// removeCookie("list")
 		removeCookie("veri")
-		removeCookie("token")
+		// removeCookie("token")
 	}, []);
 
 	useEffect(() => {
@@ -54,7 +56,8 @@ function App() {
 	}, [user]);
 
 	setInterval(() => {
-		console.log("APP", cookies)
+		console.log("APP", cookies, authURL)
+		console.log(OAuth.code)
 	}, 5000)
 
 
@@ -128,12 +131,13 @@ function App() {
 					console.log(malData)
 					if (!malData["data"]) {
 						try {
-							let authURL = malData["url"];
+							setAuthData(malData)
+							authURL = malData["url"];
 							setVeri(malData["veri"]);
-							setCookie("veri", malData["veri"], {path: '/'});
+							setCookie("veri", malData["veri"], {path: '/OAuth'});
 							// navigate("/OAuth");
-							authPopup = withCookies(window.open(authURL, "", `left=${window.screenLeft},top=${window.screenTop},width=600,height=800`));
-							authPopup.addEventListener('unload', console.log("closed"))
+							// authPopup = withCookies(window.open(authURL, "", `left=${window.screenLeft},top=${window.screenTop},width=600,height=800`));
+							// authPopup.addEventListener('unload', console.log("closed"))
 						} catch (error) {
 							alert("Your List is marked as private. Please make it public to use this feature.")
 							console.log("failed to authorize", error)
@@ -160,6 +164,14 @@ function App() {
 			}
 		}
 	}
+
+	useEffect(() => {
+		if (authData["url"]) {
+			authPopup = window.open(authData["url"], "", `left=${window.screenLeft},top=${window.screenTop},width=600,height=800`);
+			// authPopup = withCookies(window.open(authData["url"], "", `left=${window.screenLeft},top=${window.screenTop},width=600,height=800`));
+			authPopup.addEventListener('unload', console.log("closed"))
+		}
+	}, [authData]);
 
 	const getMALDataAuthd = async() => {
 		if (entry != "") {
