@@ -6,6 +6,7 @@ import { Link, useMatch, useResolvedPath, useSearchParams } from "react-router-d
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useCookies, withCookies } from "react-cookie";
 import { useState, useEffect } from "react";
+import Footer from "./components/footer";
 
 function App() {
 
@@ -306,6 +307,23 @@ function App() {
 				<Route path="/" element={<Home user={user} myList={cookies.list}/>} />
 				<Route path="/OAuth/:code?" element={<OAuth cookies={cookies} setCookie={setCookie} authorized={authorized}/>} />
 			</Routes>
+
+			{/* <Footer /> */}
+			<footer>
+				<div className="footerText">
+					<h3>© 2024 Who Seiyu?</h3>
+					<img id="email" src={require("./assets/email-8-svgrepo-com (1).png")}></img>
+					<img id="help" src={require("./assets/help-svgrepo-com.png")}></img>
+				</div>
+				<figure id="coffeeLink">
+					<a href="https://www.buymeacoffee.com/whoseiyu" target="_blank" rel="noreferrer">
+						<img id="coffee" src={require("./assets/buymeacoffee.png")} />
+						<figcaption>Buy a Loon a Coffee</figcaption>
+					</a>
+				</figure>
+				<img className="logo" id="logo" src={require("./assets/loon2.png")} alt="Loon" />
+				<img className="logo" id="me" src={require("./assets/meArrow.png")} />
+			</footer>
 		</div>
 	
 	);

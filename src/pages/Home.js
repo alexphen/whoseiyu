@@ -190,7 +190,7 @@ const Home = ({user, myList}) => {
                         <h1 id="homeTitle" style={{"fontSize":"10vh"}}>Who Seiyu?</h1>
                         <h2>A tool to display all the works of the voice actors you might know!</h2>
                         <br></br>
-                        <h3>To filter results, enter your MyAnimeList username and click 'Filter by User' or choose to filter by the 'Top 100 Anime' on MyAnimeList</h3>
+                        <h3>To filter results, enter your MyAnimeList username and click "Filter by User" or choose to filter by the "Top 100 Anime" on MyAnimeList</h3>
                         <br></br>
                         <h4>(Seiyu is a Japanese word for voice actor)</h4>
                         <br></br>
