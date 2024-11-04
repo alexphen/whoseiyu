@@ -309,7 +309,7 @@ function App() {
 			</Routes>
 
 			{/* <Footer /> */}
-			<footer>
+			{/* <footer>
 				<div className="footerText">
 					<h3>© 2024 Who Seiyu?</h3>
 					<img id="email" src={require("./assets/email-8-svgrepo-com (1).png")}></img>
@@ -323,7 +323,7 @@ function App() {
 				</figure>
 				<img className="logo" id="logo" src={require("./assets/loon2.png")} alt="Loon" />
 				<img className="logo" id="me" src={require("./assets/meArrow.png")} />
-			</footer>
+			</footer> */}
 		</div>
 	
 	);
