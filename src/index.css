@@ -22,13 +22,26 @@
   --darkgrey: #44444c;
   --lightgrey: #777;
   background-image: url('./assets/bg.png');
+  min-height: 100%;
   /* background-image: conic-gradient(var(--bg)0deg, var(--trim2)360deg, var(--bg)180deg); */
 }
 html {
   background-color: var(--bg);
+  height: 100%;
 }
 html::-webkit-scrollbar {
   display: none;
+}
+body {
+  min-height: 100%;
+}
+#root {
+  height: 100vh;
+}
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 a {
   text-decoration: none;
@@ -215,6 +228,53 @@ button:hover {
   .showsList:hover {
     display: flex;
   }
+
+  /* MOBILE FOOTER */
+
+  footer {
+    padding: 3vh 0 7vh 0;
+    top: 15vh;
+    height: 15vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+    margin-top: auto;
+    bottom: 0;
+  }
+  .logo {
+    width: 15vh;
+    height: 15vh;
+    padding-bottom: 2vh;
+    position: absolute;
+    right: 50px;
+    /* transform: scaleX(-1); */
+  }
+  #coffeeLink {
+    position: relative;
+    width: 10vh;
+    right: 15vh;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 1.2vh;
+    z-index: 1;
+  }
+  #coffee {
+    width: 60%;
+  }
+  #me {
+    display: none;
+    pointer-events: none;
+  }
+  #logo {
+    z-index: 0;
+  }
+  #logo:hover + #me {
+    display: block;
+  }
+
+  /* END MOBILE FOOTER */
+
 
   /* MOBILE SEARCH COMPONENTS */
 
@@ -527,8 +587,8 @@ button:hover {
     /* align-self: auto; */
     /* margin-top: auto; */
     /* margin-bottom: auto; */
-    /* position: relative; */
-    top: 17vw;
+    position: relative;
+    /* top: 17vw; */
   }
   .home #toTop {
     display: none;
@@ -674,7 +734,7 @@ button:hover {
     width: 100%;
     height: 18vh;
     bottom: 0;
-    z-index: 0;
+    z-index: 1;
   }
   #animeFoot h2 {
     font-size: 2vh;
@@ -1063,7 +1123,7 @@ button:hover {
   }
   /* ///////////////// */
 
-  /* NAV BAR STYLES */
+  /*  DESKTOP NAV BAR STYLES */
   .nav {
     position: -webkit-sticky; /* Safari */
     position: sticky;
@@ -1241,6 +1301,71 @@ button:hover {
   #filterTip {
     display: none;
   }
+
+
+  /* DESKTOP FOOTER */
+
+  footer {
+    padding: 10vh 0 7vh 0;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+    position: relative;
+    margin-top: auto;
+    bottom: 0;
+  }
+  .logo {
+    width: 300px;
+    height: 300px;
+    padding-bottom: 2vh;
+    position: absolute;
+    right: 50px;
+    /* transform: scaleX(-1); */
+  }
+  #coffeeLink {
+    position: relative;
+    width: 180px;
+    margin-right: 250px;
+    text-align: center;
+    text-decoration: underline;
+    z-index: 1;
+  }
+  #coffeeLink:hover {
+    filter: drop-shadow(0px 0px 20px var(--trim2))
+  }
+  #coffee {
+    width: 60%;
+  }
+  #me {
+    display: none;
+    pointer-events: none;
+  }
+  #logo {
+    z-index: 0;
+  }
+  #logo:hover + #me {
+    display: block;
+  }
+  .footerText {
+    padding: 2vh;
+    display: flex;
+    align-items: center;
+  }
+  #email {
+    width: 50px;
+    padding-left: 50px;
+  }
+  #email:hover {
+    /* background-color: #4A4E69; */
+    filter: drop-shadow(0 0 1px var(--trim2));
+  }
+  #help {
+    width: 75px;
+    padding-left: 50px;
+  }
+
 
 
 
@@ -1560,7 +1685,7 @@ button:hover {
     gap: 0;
     max-width: 100%;
     height: max-content;
-    padding: 50px 20px 400px 20px;
+    padding: 50px 20px 50px 20px;
     justify-content: center;
 
   }  
@@ -1608,8 +1733,8 @@ button:hover {
     position: fixed;
     left: 0;
     bottom: 0;
-    z-index: 0;
-    background-color:var(--bg);    
+    z-index: 3;
+    background-color:var(--darkgrey);    
     border-top: .3vh solid var(--white);
   }
   #animeFoot h2 {
